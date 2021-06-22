@@ -106,6 +106,7 @@ sap.ui.define([
               
             },
         openQuickView: function (oEvent, oModel) {
+            debugger
 			var oButton = oEvent.getSource(),
 				oView = this.getView();
 
@@ -126,7 +127,20 @@ sap.ui.define([
 		},
             onQuick: function (oEvent) {
             var oModel = this.getView().getModel();
-			this.openQuickView(oEvent, oModel);
+            this.openQuickView(oEvent, oModel);
+            
+          
+            // jQuery.ajax({
+            //     method:"GET",
+            //     url: "https://api.openweathermap.org/data/2.5/",
+                
+            //     success: function (oData, oResponse) {
+            //        debugger
+            //     },
+            //     error: function (oResponse) {
+                    
+            //     }
+            // })
             }
         });
     });

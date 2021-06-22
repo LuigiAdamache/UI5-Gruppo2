@@ -4,27 +4,11 @@
 		pages="{
 			path: '/Suppliers',
 			templateShareable: true
-			}"
-		navigate=".onNavigate">
-		<QuickViewPage
-			header="{City}"
-			title="{title}"
-			titleUrl="{titleUrl}"
-			description="{description}"
-			groups="{
-				path: 'groups',
-				templateShareable: true
 			}">
-			<QuickViewGroup heading="{heading}" elements="{ path: 'elements', templateShareable: true }">
-				<QuickViewGroupElement
-					label="{label}"
-					value="{value}"
-					url="{url}"
-					type="{elementType}"
-					pageLinkId="{pageLinkId}"
-					emailSubject="{emailSubject}"
-					target="{target}" />
-			</QuickViewGroup>
+		<QuickViewPage
+			header="{SupplierID}"
+			title="City"
+			description="Temperatura minima">
 		</QuickViewPage>
 	</QuickView>
 </core:FragmentDefinition>

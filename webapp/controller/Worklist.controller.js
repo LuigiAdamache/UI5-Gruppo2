@@ -159,37 +159,26 @@ sap.ui.define([
             oBinding.sort(oSorters);
         },
         toExcel: function () {
-            debugger
-            var oData = this.getModel().oData
+            var dati = [];
+            dati.push({
+                label: "SupplierID",
+                property: "SupplierID"
+            });
+            dati.push({
+                label: "CompanyName",
+                property: "CompanyName"
+            });
 
-            var oExport = new Export({
-                exportType: new ExportTypeCSV({ // required from "sap/ui/core/util/ExportTypeCSV"
-                    separatorChar: ",",
-                    charset: "utf-8"
-                }),
-                models: this.getView().getModel(),
-                rows: { path: "/" },
-                columns: [
-                    {
-                        name: "SupplierID",
-                        template: {
-                            content: "{SupplierID}"
-                        }
-                    },
-                    {
-                        name: "Address",
-                        template: {
-                            content: "{h_address}"
-                        }
-                    },
-                    // ...
-                ]
-            });
-            oExport.saveFile().catch(function (oError) {
-                MessageBox.error("Error when downloading data. ..." + oError);
-            }).then(function () {
-                oExport.destroy();
-            });
+            var mSettings = {
+                workbook: {
+                    columns: dati,
+                },
+                dataSource: "/V2/Northwind/Northwind.svc/Suppliers",
+                fileName: "Suppliers.csv"
+            };
+
+            var oSpreadsheet = new sap.ui.export.Spreadsheet(mSettings);
+            oSpreadsheet.build();
         },
 
 		/**
