@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog confirm=".onSortDialogConfirm" id="sortDialog">
+		<sortItems>
+			<ViewSettingsItem text="SupplierID" key="SupplierID"/>
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

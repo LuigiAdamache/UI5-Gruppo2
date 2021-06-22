@@ -1,0 +1,112 @@
+<mvc:View
+    controllerName="suppliers.suppliers.controller.fornitore"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.f.semantic"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+
+<Shell id="shell">
+    <Page id="page1" title="{i18n>headerPageFornitore}" showNavButton="true" navButtonPress="onBack" >      
+        <VBox class="sapUiSmallMargin">
+            <f:Form id="FormToolbar"
+			editable="true"
+			ariaLabelledBy="Title2" >
+            <f:toolbar>
+				<Toolbar id="TB1">
+					<Title id="Title2" text="{i18n>campi}"/>
+					<ToolbarSpacer />
+				</Toolbar>
+			</f:toolbar>
+            	<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="4"
+					labelSpanL="3"
+					labelSpanM="4"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="0"
+					emptySpanL="4"
+					emptySpanM="0"
+					emptySpanS="0"
+					columnsXL="2"
+					columnsL="1"
+					columnsM="1"
+					singleContainerFullSize="false" />
+			</f:layout>
+            	<f:formContainers>
+	                <f:FormContainer ariaLabelledBy="Title2">
+
+                        <f:formElements>
+                        <f:FormElement label="SupplierID">
+							<f:fields>
+								<Input type="Number" enabled="true" required="true" id="supID" />
+							</f:fields>
+						</f:FormElement>
+
+                        <f:FormElement label="CompanyName" >
+							<f:fields>
+								<Input enabled="true" id="CompN" required="true"/>
+							</f:fields>
+						</f:FormElement>
+
+                        <f:FormElement label="ContactName">
+                            <f:fields>
+								<Input enabled="true" required="true" id="ContN"/>
+							</f:fields>
+						</f:FormElement>
+
+                        <f:FormElement label="ContactTitle" >
+                         <Select items="{path: 'b>/ContactTitle'}" forceSelection="false" id="ConctT" >
+					        <core:Item key="{ContactTitle}" text="{b>Name}" />
+				        </Select>
+						</f:FormElement>
+
+                        <f:FormElement label="Address">
+							<f:fields>
+								<Input  enabled="true" required="true" id="addr"/>
+							</f:fields>
+						</f:FormElement>
+    
+                        <f:FormElement label="City">
+							<Select selectedKey="{path: 'b>/City'}" forceSelection="false" change="onCity" id="city">
+					            <core:Item key="Roma" text="Roma" />
+                                <core:Item key="Milano" text="Milano"/>
+                                <core:Item key="Bologna" text="Bologna"/>
+				            </Select>
+						</f:FormElement>
+
+                        <f:FormElement label="Region">
+							<f:fields>
+								<Input editable="false" value="{b>/Region}" id="reg" />
+							</f:fields>
+						</f:FormElement>
+
+                        <f:FormElement label="PostalCode">
+							<f:fields>
+								<Input editable="false" id="PosCod" value="{b>/PostalCode}"/>
+							</f:fields>
+						</f:FormElement>
+
+                        <f:FormElement label="Country">
+							<f:fields>
+								<Input editable="false" id="country" value="{b>/Country}"/>
+							</f:fields>
+						</f:FormElement>
+                    
+					</f:formElements>                    
+	            </f:FormContainer>               
+	            </f:formContainers> 
+            </f:Form>
+        </VBox>
+			<FlexBox
+				height="100px"
+				alignItems="Start"
+				justifyContent="Center">
+				<Button icon="sap-icon://accept" press="onCheck" text="Check" class="sapUiSmallMarginEnd" />
+                <Button icon="sap-icon://clear-all" press="onClear" text="Pulisci" />
+			</FlexBox>  
+    </Page> 
+    </Shell>
+</mvc:View>

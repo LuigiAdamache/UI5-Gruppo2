@@ -1,0 +1,112 @@
+<mvc:View
+	controllerName="suppliers.suppliers.controller.Object"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.f.semantic"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+
+ <Shell id="shell">
+
+    <Page id="page1" title="{i18n>headerPage}" showNavButton="true" navButtonPress="onNavBack" >  
+	<semantic:SemanticPage
+		id="page"
+		headerPinnable="false"
+		toggleHeaderOnTitleClick="false"
+		busy="{objectView>/busy}"
+		busyIndicatorDelay="{objectView>/delay}">
+        
+		<semantic:titleHeading>
+			<Title
+				text="{SupplierID}"
+				level="H2"/>
+		</semantic:titleHeading>
+
+        <VBox class="sapUiSmallMargin">
+            <f:Form id="FormToolbar"
+			editable="true"
+			ariaLabelledBy="Title1" >
+            <f:toolbar>
+				<Toolbar id="TB1"> 
+					<Title id="Title1" text="Ulteriori informazioni"/> 
+					<ToolbarSpacer />
+                    <Button icon="sap-icon://home" press="onHome"/>
+				</Toolbar>
+			</f:toolbar>
+            	<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="4"
+					labelSpanL="3"
+					labelSpanM="4"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="0"
+					emptySpanL="4"
+					emptySpanM="0"
+					emptySpanS="0"
+					columnsXL="2"
+					columnsL="1"
+					columnsM="1"
+					singleContainerFullSize="false" />
+			</f:layout>
+            	<f:formContainers>
+	                <f:FormContainer ariaLabelledBy="Title2">
+
+                        <f:formElements>
+                        <f:FormElement label="CompanyName">
+							<f:fields>
+								<Input value="{CompanyName}" enabled="false"/>
+							</f:fields>
+						</f:FormElement>
+
+                        <f:FormElement label="ContactTitle">
+							<f:fields>
+								<Input value="{ContactTitle}" enabled="false"/>
+							</f:fields>
+						</f:FormElement>
+
+                        <f:FormElement label="Address">
+							<f:fields>
+								<Input value="{Address}" enabled="false"/>
+							</f:fields>
+						</f:FormElement>
+    
+                        <f:FormElement label="City">
+							<f:fields>
+								<Input value="{City}" enabled="false"/>
+							</f:fields>
+						</f:FormElement>
+
+                        <f:FormElement label="Region">
+							<f:fields>
+								<Input value="{Region}" enabled="false"/>
+							</f:fields>
+						</f:FormElement>
+
+                        <f:FormElement label="PostalCode">
+							<f:fields>
+								<Input value="{PostalCode}" enabled="false"/>
+							</f:fields>
+						</f:FormElement>
+
+                        <f:FormElement label="Country">
+							<f:fields>
+								<Input value="{Country}" enabled="false"/>
+							</f:fields>
+						</f:FormElement>
+
+                        <f:FormElement label="Phone">
+							<f:fields>
+								<Input value="{Phone}" enabled="false"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+	            </f:FormContainer>
+	            </f:formContainers>
+            </f:Form>      
+        </VBox>
+	</semantic:SemanticPage>
+    </Page>
+    </Shell>
+</mvc:View>

@@ -1,0 +1,70 @@
+<mvc:View
+	controllerName="suppliers.suppliers.controller.esterni"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.f.semantic">
+
+    <Page id="est" showNavButton="true" navButtonPress="onNavBack" title="{i18n>est}">	
+			<Table
+				id="table"
+				width="auto"
+				items="{es5>/BusinessPartnerSet}"
+				noDataText="{worklistView>/tableNoDataText}"
+				busyIndicatorDelay="{worklistView>/tableBusyDelay}"
+				growing="true"
+				growingScrollToLoad="true"
+				updateFinished=".onUpdateFinished"
+                class="sapUiLargeMargin">
+
+
+				<columns>
+					<Column id="nameColumn" >
+						<Text text="{i18n>C1}" id="C1"/>
+					</Column>
+                    <Column id="nameColumn1" >
+						<Text text="{i18n>C2}" id="C2"/>
+					</Column>
+                    <Column id="nameColumn2" >
+						<Text text="{i18n>C3}" id="C3"/>
+					</Column>
+                    <Column id="nameColumn3" >
+						<Text text="{i18n>C4}" id="C4"/>
+					</Column>
+                    <Column id="nameColumn4" >
+						<Text text="{i18n>C5}" id="C5"/>
+					</Column>
+                    <Column id="nameColumn5" >
+						<Text text="{i18n>C6}" id="C6"/>
+					</Column>
+					<Column id="unitNumberColumn">
+						<Text text="{i18n>C7}" id="C7"/>
+					</Column>
+				</columns>
+
+				<items>
+					<ColumnListItem>
+						<cells>
+                        <ObjectIdentifier
+								text="{es5>Address/City}"/>
+                        <ObjectIdentifier
+								text="{es5>Address/PostalCode}"/>
+                        <ObjectIdentifier
+								text="{es5>Address/Street}"/>
+                        <ObjectIdentifier
+								text="{es5>BusinessPartnerID}"/>
+                        <ObjectIdentifier
+								text="{es5>CompanyName}"/>
+                        <DisplayListItem
+                                value="{es5>WebAddress}"
+                                type="Active"
+                                press="handleUrlPress" />
+                        <DisplayListItem
+                                value="{es5>EmailAddress}"
+                                type="Active"
+                                press="handleEmailPress" />    
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+    </Page>
+</mvc:View>

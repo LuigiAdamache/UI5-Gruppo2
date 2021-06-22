@@ -1,0 +1,40 @@
+<mvc:View
+    controllerName="suppliers.suppliers.controller.tile"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+>
+	<Shell id="shell">
+		<Page id="page2" title="{i18n>title}">
+            <GenericTile header="{i18n>headerText}" class="testClass sapUiTinyMarginTopBottom sapUiTinyMarginBegin" press="goTo">
+            <customData>
+                <c:CustomData key="go"
+                    value="lista"
+                    writeToDom="false" />
+            </customData>
+        </GenericTile> 
+         <GenericTile header="{i18n>headerText2}" class="testClass sapUiTinyMarginTopBottom sapUiTinyMarginBegin" press="goVai">
+            <customData>
+                <c:CustomData key="go"
+                    value="lista"
+                    writeToDom="false" />
+            </customData>
+        </GenericTile> 
+         <GenericTile header="{i18n>headerText3}" class="testClass sapUiTinyMarginTopBottom sapUiTinyMarginBegin" press="goEntra">
+            <customData>
+                <c:CustomData key="go"
+                    value="lista"
+                    writeToDom="false" />
+            </customData>
+        </GenericTile> 
+            <GenericTile header="{i18n>headerText4}" class="testClass sapUiTinyMarginTopBottom sapUiTinyMarginBegin" press="goAccedi">
+            <customData>
+                <c:CustomData key="go"
+                    value="lista"
+                    writeToDom="false" />
+            </customData>
+        </GenericTile> 
+		</Page>
+	</Shell>
+</mvc:View>

@@ -1,0 +1,22 @@
+<mvc:View
+    controllerName="suppliers.suppliers.controller.avverti"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core">
+    
+    <Shell id="shell">
+	<Page id="page" title="{i18n>headerText3}" showNavButton="true" navButtonPress="onIndietro">
+        
+                <l:VerticalLayout class="sapUiContentPadding" width="100%">
+                <Label text="{i18n>headerPageFornitore}" />
+                <Input id="inputID" submit="click" type="Number" placeholder="{i18n>placeholderV4}" showSuggestion="true" showValueHelp="true" valueHelpRequest="help"  width="50%" suggestionItems="{path: '/Suppliers'}">
+                 <suggestionItems>
+			        <core:Item text="{SupplierID}" />
+			     </suggestionItems>
+                </Input>
+                </l:VerticalLayout> 
+	</Page>
+    </Shell>
+</mvc:View>
