@@ -16,6 +16,12 @@
 			        <core:Item text="{SupplierID}" />
 			     </suggestionItems>
                 </Input>
+                    <Button
+			         id="employeeQuickView"
+			         text="{i18n>quick}"
+			         width="200px"
+			         press="onQuick"
+			         class="sapUiSmallMarginBottom"/>
                 </l:VerticalLayout> 
 	</Page>
     </Shell>
