@@ -1,14 +1,18 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
-	<QuickView
-		id="quickView"
-		pages="{
-			path: '/Suppliers',
-			templateShareable: true
-			}">
+	<QuickView id="quickView">
 		<QuickViewPage
-			header="{SupplierID}"
-			title="City"
-			description="Temperatura minima">
-		</QuickViewPage>
+			header="{meteo>/city}"
+			title="{meteo>/description}"
+			description="{meteo>/temp_min}">
+		
+            <QuickViewGroup>
+                <QuickViewGroupElement
+                    label="email"
+                    value="Send email"
+                    type="email"
+                    visible="{meteo>/email}"
+                    />
+            </QuickViewGroup>
+        </QuickViewPage>
 	</QuickView>
 </core:FragmentDefinition>

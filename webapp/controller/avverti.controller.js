@@ -5,12 +5,13 @@ sap.ui.define([
     "sap/ui/core/Fragment",
     "sap/ui/model/FilterOperator",
     "sap/ui/model/Filter",
-    "sap/m/MessageBox"
+    "sap/m/MessageBox",
+    "sap/ui/model/json/JSONModel"
 ],
 	/**
 	 * @param {typeof sap.ui.core.mvc.Controller} Controller
 	 */
-    function (Controller, UIComponent, History, Fragment, FilterOperator, Filter, MessageBox) {
+    function (Controller, UIComponent, History, Fragment, FilterOperator, Filter, MessageBox, JSONModel) {
         "use strict";
 
         return Controller.extend("suppliers.suppliers.controller.avverti", {
@@ -65,82 +66,69 @@ sap.ui.define([
                 oEvent.getSource().getBinding("items").filter([oFilter]);
             },
             click: function (oEvent) {
-                debugger
                 var value = this.byId("inputID").getValue();
                 var oModel = this.getOwnerComponent().getModel();
-                var aSuppliers1 = oModel.oData["Suppliers(1)"].SupplierID
-                var aSuppliers2 = oModel.oData["Suppliers(2)"].SupplierID
-                var aSuppliers3 = oModel.oData["Suppliers(3)"].SupplierID
-                var aSuppliers4 = oModel.oData["Suppliers(4)"].SupplierID
-                var aSuppliers5 = oModel.oData["Suppliers(5)"].SupplierID
-                var aSuppliers6 = oModel.oData["Suppliers(6)"].SupplierID
-                var aSuppliers7 = oModel.oData["Suppliers(7)"].SupplierID
-                var aSuppliers8 = oModel.oData["Suppliers(8)"].SupplierID
-                var aSuppliers9 = oModel.oData["Suppliers(9)"].SupplierID
-                var aSuppliers10 = oModel.oData["Suppliers(10)"].SupplierID
-                var aSuppliers11 = oModel.oData["Suppliers(11)"].SupplierID
-                var aSuppliers12 = oModel.oData["Suppliers(12)"].SupplierID
-                var aSuppliers13 = oModel.oData["Suppliers(13)"].SupplierID
-                var aSuppliers14 = oModel.oData["Suppliers(14)"].SupplierID
-                var aSuppliers15 = oModel.oData["Suppliers(15)"].SupplierID
-                var aSuppliers16 = oModel.oData["Suppliers(16)"].SupplierID
-                var aSuppliers17 = oModel.oData["Suppliers(17)"].SupplierID
-                var aSuppliers18 = oModel.oData["Suppliers(18)"].SupplierID
-                var aSuppliers19 = oModel.oData["Suppliers(19)"].SupplierID
-                var aSuppliers20 = oModel.oData["Suppliers(20)"].SupplierID
-                var aSuppliers21 = oModel.oData["Suppliers(21)"].SupplierID
-                var aSuppliers22 = oModel.oData["Suppliers(22)"].SupplierID
-                var aSuppliers23 = oModel.oData["Suppliers(23)"].SupplierID
-                var aSuppliers24 = oModel.oData["Suppliers(24)"].SupplierID
-                var aSuppliers25 = oModel.oData["Suppliers(25)"].SupplierID
-                var aSuppliers26 = oModel.oData["Suppliers(26)"].SupplierID
-                var aSuppliers27 = oModel.oData["Suppliers(27)"].SupplierID
-                var aSuppliers28 = oModel.oData["Suppliers(28)"].SupplierID
-                var aSuppliers29 = oModel.oData["Suppliers(29)"].SupplierID
-            
-                if (aSuppliers1 == value || aSuppliers2 == value || aSuppliers3 == value || aSuppliers4 == value || aSuppliers5 == value || aSuppliers6 == value || aSuppliers7 == value || aSuppliers8 == value || aSuppliers9 == value || aSuppliers10 == value || aSuppliers11 == value || aSuppliers12 == value || aSuppliers13 == value || aSuppliers14 == value || aSuppliers15 == value || aSuppliers16 == value || aSuppliers17 == value || aSuppliers18 == value || aSuppliers19 == value || aSuppliers20 == value || aSuppliers21 == value || aSuppliers22 == value || aSuppliers23 == value || aSuppliers24 == value || aSuppliers25 == value || aSuppliers26 == value || aSuppliers27 == value || aSuppliers28 == value || aSuppliers29 == value ) {
-                        
-                } else {
+                var sup = oModel.oData;
+                var val = false
+                for (let obj in sup) {
+                    if (sup[obj].SupplierID == value) {
+                        val = true
+                        this.byId("employeeQuickView").setEnabled(true)
+                    }
+                }
+                if (!val) {
+                    this.byId("employeeQuickView").setEnabled(false)
                     return MessageBox.error("Nessun fornitore associato")
-                }  
-              
+                }
             },
-        openQuickView: function (oEvent, oModel) {
-            debugger
-			var oButton = oEvent.getSource(),
-				oView = this.getView();
+            openQuickView: function () {
+                var oView = this.getView();
 
-			if (!this._pQuickView) {
-				this._pQuickView = Fragment.load({
-					id: oView.getId(),
-					name: "suppliers.suppliers.fragment.Quick",
-					controller: this
-				}).then(function (oQuickView) {
-					oView.addDependent(oQuickView);
-					return oQuickView;
-				});
-			}
-			this._pQuickView.then(function (oQuickView){
-				oQuickView.setModel(oModel);
-				oQuickView.openBy(oButton);
-			});
-		},
+                if (!this._pQuickView) {
+                    this._pQuickView = Fragment.load({
+                        id: oView.getId(),
+                        name: "suppliers.suppliers.fragment.Quick",
+                        controller: this
+                    }).then(function (oQuickView) {
+                        oView.addDependent(oQuickView);
+                        return oQuickView;
+                    });
+                }
+            },
             onQuick: function (oEvent) {
-            var oModel = this.getView().getModel();
-            this.openQuickView(oEvent, oModel);
-            
-          
-            // jQuery.ajax({
-            //     method:"GET",
-            //     url: "https://api.openweathermap.org/data/2.5/",
-                
-            //     success: function (oData, oResponse) {
-            //        debugger
-            //     },
-            //     error: function (oResponse) {
-                    
-            //     }
-            // })
+                debugger
+                var oModel = this.getOwnerComponent().getModel();
+                var Data = oModel.oData;
+                var SupplierID = this.byId("inputID").getValue();
+                var Citta = Data[`Suppliers(${SupplierID})`].City;
+                var oButton = oEvent.getSource()
+
+                $.ajax({
+                    method: "GET",
+                    url: `https://api.openweathermap.org/data/2.5/weather?q=${Citta}&appid=5ce55d720929c2c516045ce60b27de43`,
+                    success: (oData, oResponse) => {
+                        this.openQuickView();
+                        this._pQuickView.then((oQuickView) => {
+                            debugger
+                            var meteo = new JSONModel({
+                                city: oData.name,
+                                country: oData.country,
+                                description: oData.weather[0].description,
+                                temp_max: oData.main.temp_max,
+                                temp_min: parseInt(oData.main.temp_min - 273),
+                                email: false
+                            });
+                            if (meteo.oData.temp_min <= 20) {
+                                meteo.oData.email = true;
+                            }
+                            oQuickView.setModel(meteo, "meteo")
+                            oQuickView.openBy(oButton)
+                        })
+                    },
+                    error: function (oResponse) {
+
+                    }
+                })
             }
         });
     });

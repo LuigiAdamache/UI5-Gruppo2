@@ -21,7 +21,8 @@
 			         text="{i18n>quick}"
 			         width="200px"
 			         press="onQuick"
-			         class="sapUiSmallMarginBottom"/>
+			         class="sapUiSmallMarginBottom"
+                     enabled="false"/>
                 </l:VerticalLayout> 
 	</Page>
     </Shell>
