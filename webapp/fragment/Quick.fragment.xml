@@ -2,13 +2,13 @@
 	<QuickView id="quickView">
 		<QuickViewPage
 			header="{meteo>/city}"
-			title="{meteo>/description}"
-			description="{meteo>/temp_min}">
+			title="Tempo: {meteo>/description}"
+			description="Temperatura minima: {meteo>/temp_min}">
 		
             <QuickViewGroup>
                 <QuickViewGroupElement
-                    label="email"
-                    value="Send email"
+                    label="Send Email"
+                    value="@"
                     type="email"
                     visible="{meteo>/email}"
                     />

@@ -47,13 +47,13 @@
 
                         <f:FormElement label="CompanyName" >
 							<f:fields>
-								<Input enabled="true" id="CompN" required="true"/>
+								<Input enabled="true" id="companyName" required="true" liveChange="onChange"/>
 							</f:fields>
 						</f:FormElement>
 
                         <f:FormElement label="ContactName">
                             <f:fields>
-								<Input enabled="true" required="true" id="ContN"/>
+								<Input enabled="true" required="true" id="contactName" liveChange="onChange"/>
 							</f:fields>
 						</f:FormElement>
 

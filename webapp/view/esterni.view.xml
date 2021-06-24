@@ -18,25 +18,25 @@
 
 
 				<columns>
-					<Column id="nameColumn" >
+					<Column id="nameColumn1" >
 						<Text text="{i18n>C1}" id="C1"/>
 					</Column>
-                    <Column id="nameColumn1" >
+                    <Column id="nameColumn2" >
 						<Text text="{i18n>C2}" id="C2"/>
 					</Column>
-                    <Column id="nameColumn2" >
+                    <Column id="nameColumn3" >
 						<Text text="{i18n>C3}" id="C3"/>
 					</Column>
-                    <Column id="nameColumn3" >
+                    <Column id="nameColumn4" >
 						<Text text="{i18n>C4}" id="C4"/>
 					</Column>
-                    <Column id="nameColumn4" >
+                    <Column id="nameColumn5" >
 						<Text text="{i18n>C5}" id="C5"/>
 					</Column>
-                    <Column id="nameColumn5" >
+                    <Column id="nameColumn6" >
 						<Text text="{i18n>C6}" id="C6"/>
 					</Column>
-					<Column id="unitNumberColumn">
+					<Column id="nameColumn7">
 						<Text text="{i18n>C7}" id="C7"/>
 					</Column>
 				</columns>

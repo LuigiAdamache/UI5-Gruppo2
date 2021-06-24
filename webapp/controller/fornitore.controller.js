@@ -9,7 +9,7 @@ sap.ui.define([
 	/**
 	 * @param {typeof sap.ui.core.mvc.Controller} Controller
 	 */
-    function (Controller, UIComponent, History, JSONModel, MessageBox, MessageToast) {
+    function (Controller, UIComponent, History, JSONModel, MessageBox) {
         "use strict";
 
         return Controller.extend("suppliers.suppliers.controller.tile", {
@@ -86,6 +86,16 @@ sap.ui.define([
                     insert["PostalCode"] = "40121";
                     insert["Country"] = "Italia";
                 }
+            },
+            onChange: function (oEvent) {
+                debugger
+                var string = oEvent.getParameter("value")
+                const toUppercase = string => string.replace(/^(.)|\s+(.)/g, c => c.toUpperCase());
+                let sourceName = oEvent.getSource().getParent().getAggregation("label").replace(/\s/g, "");
+                let inputID = sourceName.charAt(0).toLowerCase()+ sourceName.slice(1);
+                    if( string != "" ){
+                        this.byId(inputID).setValue(toUppercase(string));
+                    }
             }
         });
     });
