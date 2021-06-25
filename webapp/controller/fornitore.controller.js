@@ -55,17 +55,19 @@ sap.ui.define([
                     obj.getAggregation("fields")[0].setValue("")
                 })
             },
-            onCheck: function () {
+            onCheck: function (oEvent) {
+                debugger
                 var SupplierID = this.byId("supID").getValue();
-                var CompanyName = this.byId("CompN").getValue();
-                var ContactName = this.byId("ContN").getValue();
+                var CompanyName = this.byId("companyName").getValue();
+                var ContactName = this.byId("contactName").getValue();
                 var Address = this.byId("addr").getValue();
-
+        
                 if (!SupplierID || !CompanyName || !ContactName || !Address) {
                     MessageBox.error("Inserire tutti i campi");
                 }
             },
             onCity: function (oEvent) {
+                debugger
                 var insert = this.getView().getModel("b").getData();
                 var citta = oEvent.getParameter("selectedItem").getProperty("key");
 
@@ -88,7 +90,6 @@ sap.ui.define([
                 }
             },
             onChange: function (oEvent) {
-                debugger
                 var string = oEvent.getParameter("value")
                 const toUppercase = string => string.replace(/^(.)|\s+(.)/g, c => c.toUpperCase());
                 let sourceName = oEvent.getSource().getParent().getAggregation("label").replace(/\s/g, "");

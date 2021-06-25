@@ -10,7 +10,7 @@ sap.ui.define([
     function (Controller, UIComponent, History, mobileLibrary) {
         "use strict";
         var URLHelper = mobileLibrary.URLHelper;
-        var ListController = Controller.extend("suppliers.suppliers.controller.esterni", {
+        Controller.extend("suppliers.suppliers.controller.esterni", {
             onInit: function () {
                
             },
@@ -35,5 +35,4 @@ sap.ui.define([
 			URLHelper.redirect(this._getVal(evt), true);
 		}
         });
-        return ListController;
     });
